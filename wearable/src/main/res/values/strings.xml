@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Sunshine Wearable</string>
     <string name="my_digital_name">Sunshine</string>
+
+    <string name="fit_am">AM</string>
+    <string name="fit_pm">PM</string>
+    <string name="fit_temperature">%1$s %2$s</string>
 </resources>

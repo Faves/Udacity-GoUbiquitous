@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="weather_default_require_interval">10800000</integer> <!-- same to SunshineSyncAdapter.SYNC_INTERVAL -->
+</resources>
