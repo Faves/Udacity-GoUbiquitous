@@ -4,5 +4,4 @@
 
     <string name="fit_am">AM</string>
     <string name="fit_pm">PM</string>
-    <string name="fit_temperature">%1$s %2$s</string>
 </resources>

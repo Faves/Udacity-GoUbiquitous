@@ -1,6 +1,7 @@
 package com.example.android.sunshine.app.wearable;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -9,6 +10,7 @@ import android.util.Log;
 
 import com.example.android.sunshine.app.Utility;
 import com.example.android.sunshine.app.data.WeatherContract;
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.wearable.CapabilityApi;
@@ -41,6 +43,17 @@ public class UpdateSunshineWatchFaceService extends WearableListenerService {
     public static final  String PATH_SERVICE_REQUIRE    = "/UpdateSunshineWatchFaceService/Require";
 
     private GoogleApiClient mGoogleApiClient;
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        if (intent != null && SunshineSyncAdapter.ACTION_DATA_UPDATED.equals(intent.getAction())) {
+            Log.d(TAG, "onStartCommand: receive ACTION_DATA_UPDATED");
+            startTask();
+        }
+
+        return super.onStartCommand(intent, flags, startId);
+    }
 
     @Override
     public void onCreate() {
